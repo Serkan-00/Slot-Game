@@ -1,7 +1,7 @@
 // 1. Deposit some money (DONE)
 // 2. Determine number of lines to bet on (DONE)
 // 3. Collect a bet amount (DONE)
-// 4. Spin the slot machine
+// 4. Spin the slot machine (DONE)
 // 5. check if the user won
 // 6. give the user their winnings
 // 7. play again
@@ -80,7 +80,7 @@ const spin = () => {
     for (let i = 0; i < COLS; i++) { 
       reels.push([]); 
       const reelSymbols = [...symbols]; 
-      for (let j = 0; i < ROWS; i++) { 
+      for (let j = 0; j < ROWS; j++) { 
          const randomIndex = Math.floor(Math.random() * reelSymbols.length); 
           const selectedSymbol = reelSymbols[randomIndex]; 
           reels[i].push(selectedSymbol); 
@@ -91,12 +91,42 @@ const spin = () => {
     return reels; 
 }; 
 
+const transpose = (reels) => { 
+   const rows = []; 
 
-const reels = spin(); 
-console.log(reels); 
+   for (let i = 0; i < ROWS; i++) { 
+      for (let j = 0; j < COLS; j++) { 
+         rows[i].push(reels[j][i])
+      }
+   }
+
+   return rows 
+}
+
+const printRows = (rows) =>  { 
+   for (const row of rows) { 
+      let rowString = "A"; 
+      for (const [i, symbol] of row.entries()) { 
+         rowString += symbol 
+         if (i != row.length - 1) { 
+            rowString += " | "
+         }
+      }
+      console.log(rowString)
+   }
+}
+
+
+
+
+
 let balance = deposit(); //let allows you to change your input later on 
 const numberOfLines = getNumberOfLines(); 
 const bet = getBet(balance, numberOfLines); 
+const reels = spin(); 
+const rows = transpose(reels); 
+printRows(rows); 
+
 
 
 
