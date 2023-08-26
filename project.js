@@ -68,6 +68,27 @@ const getBet = (balance, lines) => {   //The (balance) inside the parentheses in
     }; 
 }
 
+const spin = () => { 
+   const symbols = [];
+   for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {  //this shows the symbols_count as it is
+     for (let i = 0; i < count; i++) { 
+      symbols.push(symbol); 
+     }
+   }
+
+   const reels = [[], [], []]; 
+    for (let i = 0; i < COLS; i++) { 
+      const reelSymbols = [...symbols]; 
+      for (let j = 0; i < ROWS; i++) { 
+         const randomIndex = Math.floor(Math.random() * reelSymbols.length); 
+          const selectedSymbol = reelSymbols[randomIndex]; 
+          reels[i]
+
+      }
+    }
+     
+
+}; 
 
 
 
