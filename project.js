@@ -76,8 +76,9 @@ const spin = () => {
      }
    }
 
-   const reels = [[], [], []]; 
+   const reels = []; 
     for (let i = 0; i < COLS; i++) { 
+      reels.push([]); 
       const reelSymbols = [...symbols]; 
       for (let j = 0; i < ROWS; i++) { 
          const randomIndex = Math.floor(Math.random() * reelSymbols.length); 
@@ -86,12 +87,13 @@ const spin = () => {
           reelSymbols.splice(randomIndex, 1); 
       }
     }
-     
 
+    return reels; 
 }; 
 
 
-
+const reels = spin(); 
+console.log(reels); 
 let balance = deposit(); //let allows you to change your input later on 
 const numberOfLines = getNumberOfLines(); 
 const bet = getBet(balance, numberOfLines); 
