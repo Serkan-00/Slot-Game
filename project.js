@@ -95,17 +95,19 @@ const transpose = (reels) => {
    const rows = []; 
 
    for (let i = 0; i < ROWS; i++) { 
+      rows.push([]); // Initialize each row as an empty array before pushing symbols into it
       for (let j = 0; j < COLS; j++) { 
-         rows[i].push(reels[j][i])
+         rows[i].push(reels[j][i]);
       }
    }
 
-   return rows 
+   return rows;
 }
+
 
 const printRows = (rows) =>  { 
    for (const row of rows) { 
-      let rowString = "A"; 
+      let rowString = ""; 
       for (const [i, symbol] of row.entries()) { 
          rowString += symbol 
          if (i != row.length - 1) { 
@@ -115,9 +117,6 @@ const printRows = (rows) =>  {
       console.log(rowString)
    }
 }
-
-
-
 
 
 let balance = deposit(); //let allows you to change your input later on 
