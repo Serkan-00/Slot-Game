@@ -1,12 +1,31 @@
 // 1. Deposit some money (DONE)
 // 2. Determine number of lines to bet on (DONE)
-// 3. Collect a bet amount
+// 3. Collect a bet amount (DONE)
 // 4. Spin the slot machine
 // 5. check if the user won
 // 6. give the user their winnings
 // 7. play again
 
 const prompt = require("prompt-sync")(); 
+
+const ROWS = 3; 
+const COLS = 3; 
+
+const SYMBOLS_COUNT = {
+   "A": 2, 
+   "B": 4,
+   "C": 6,
+   "D": 8
+}
+const SYMBOL_VALUES = {
+   "A": 5, 
+   "B": 4,
+   "C": 3,
+   "D": 2
+}
+
+
+
 //Step1
 const deposit = () => { 
     while (true) {  //This While statement makes it so the request is repeated constantly 
